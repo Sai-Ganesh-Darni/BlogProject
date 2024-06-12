@@ -38,6 +38,9 @@
           color: #777;
           font-weight: 300;
         }
+        @media screen  {
+          
+        }
         footer{
           color: #777;
           text-align: center;
@@ -78,6 +81,8 @@
         }
         .delete:hover{
             cursor: pointer;
+            background-color: red;
+            color: white;
             box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
         }
     
@@ -108,4 +113,17 @@
           border: 0;
           font-size: 1.2em;
           cursor: pointer;
+        }
+
+        @media only screen and (max-width: 768px) {
+          /* Your mobile-specific CSS styles here */
+          body {
+            font-size: 16px; /* Example: adjust font size for mobile */
+            max-width: 768px;
+            padding: 0 10px;
+          }
+         
+          .content {
+            width: 90%; /* Example: adjust content width for mobile */
+          }
         }

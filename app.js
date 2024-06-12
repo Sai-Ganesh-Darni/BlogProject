@@ -1,16 +1,20 @@
+require('dotenv').config();
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
+
 // express app
 const app = express();
 
 //connect to mongodb
-// dbURI = 'mongodb+srv://Ganii:rgukt123@nodetuts.ote34e5.mongodb.net/';
-dbURI = 'mongodb+srv://Ganii:rgukt123@nodetuts.ote34e5.mongodb.net/BlogDb?retryWrites=true&w=majority';
-mongoose.connect(dbURI)
-.then((ressult) => app.listen(3000))
+mongoose.connect(process.env.dbURI)
+.then((result) => console.log('Connected to MongoDB'))
 .catch((err) => console.log(err));
+
+// ** Moved port configuration outside**
+const port = process.env.PORT || 3000; // Use environment variable or default to 3000
+app.listen(port, () => console.log(`Server listening on port ${port}`));
 
 //register view engine
 app.set('view engine','ejs');
